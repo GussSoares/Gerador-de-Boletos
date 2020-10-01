@@ -1,4 +1,5 @@
 import datetime
+import generic_functions
 
 # TODO: utilização de dicionário de dados
 class BoletoSantander(object):
@@ -25,7 +26,7 @@ class BoletoSantander(object):
     @staticmethod
     def gerar_nosso_numero():
         nosso_numero = "566612457800"
-        return nosso_numero + modulo_onze(nosso_numero, True)
+        return nosso_numero + generic_functions.modulo_onze(nosso_numero, True)
 
     # TODO: geração automática da data a partir da geração do boleto considerando finais de semana e feriados
     # método para gerar o fator de vencimento do boleto a partir de sua data de vencimento
@@ -42,21 +43,21 @@ class BoletoSantander(object):
         codigo_de_barras = codigo_banco + codigo_moeda + fator_vencimento + str(valor_nominal).replace(".", "").zfill(
             10) + campos_fixos[0] + codigo_beneficiario + campos_fixos[1] + nosso_numero[5:] + campos_fixos[
                                2] + modalidade_carteira
-        verificador_cb = modulo_onze(codigo_de_barras, False, True)
+        verificador_cb = generic_functions.modulo_onze(codigo_de_barras, False, True)
 
         # montar campos
 
         # primeiro campo da linha digitável
         primeiro_campo = codigo_banco + codigo_moeda + campos_fixos[0] + codigo_beneficiario[0:4]
-        primeiro_campo += gerar_digito_verificador(primeiro_campo)
+        primeiro_campo += generic_functions.gerar_digito_verificador(primeiro_campo)
 
         # segundo campo da linha digitável
         segundo_campo = codigo_beneficiario[4:] + nosso_numero[0:7]
-        segundo_campo += gerar_digito_verificador(segundo_campo)
+        segundo_campo += generic_functions.gerar_digito_verificador(segundo_campo)
 
         # terceiro campo da linha digitável
         terceiro_campo = nosso_numero[7:] + campos_fixos[2] + modalidade_carteira
-        terceiro_campo += gerar_digito_verificador(terceiro_campo)
+        terceiro_campo += generic_functions.gerar_digito_verificador(terceiro_campo)
 
         # quarto campo da linha digitável
         # verificador_cb
