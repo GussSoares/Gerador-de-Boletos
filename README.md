@@ -6,4 +6,6 @@
 - [ ] Banco do Brasil
 - [ ] Bradesco
 
-![](boleto-logo-1.png)    ![](santander-logo-8.png)
+  ![](boleto-logo-4.png)    
+  
+  ![](santander-logo-8.png)
