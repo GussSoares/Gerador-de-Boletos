@@ -8,4 +8,4 @@
 
   ![](boleto-logo-4.png)    
   
-  ![](logo-santander-icon-512.png)
+  ![](logo-santander-icon-256.png)
