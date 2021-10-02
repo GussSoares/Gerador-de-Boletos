@@ -1,8 +1,9 @@
 import datetime
-import generic_functions
+
+from gerador_de_boletos.utils import generic_functions
 
 # TODO: utilização de dicionário de dados
-class BoletoSantander(object):
+class BoletoSantander:
     codigo_banco = "033"  # identificação do banco
     codigo_moeda = "9"  # código da moeda (9 para real e 8 para moeda estrangeira
     campos_fixos = ["9", "00000", "0"]  # campos fixos utilizados na geração do número digitável do boleto
